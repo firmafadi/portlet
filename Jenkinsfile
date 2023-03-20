@@ -14,7 +14,7 @@ pipeline {
         //ENV Staging
         STAGING_HOST = "${env.HOST-STAGING-PORTLET}"
         STAGING_USER = "${env.USER-STAGING-PORTLET}"
-        STAGING_AGENT = 'testing0'
+        STAGING_AGENT = 'jenkins-staging'
         APP_PATH_STAGING = '/var/www/html/rschlaravel1'
         
         //ENV Slack Notification

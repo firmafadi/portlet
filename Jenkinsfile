@@ -6,8 +6,8 @@ pipeline {
         APP_NAME = 'Testing-App'
         
         //ENV Staging
-        STAGING_HOST = "${env.HOST-PORTLET-STAGING}"
-        STAGING_USER = "${env.USER-PORTLET-STAGING}"
+        STAGING_HOST = "${env.STAGING_HOST}"
+        STAGING_USER = "${env.STAGING_USER}"
         STAGING_AGENT = 'ssh-agent-staging'
         APP_PATH_STAGING = '/var/www/html-php56/testing-jenkins'
 

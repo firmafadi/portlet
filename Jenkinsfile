@@ -12,8 +12,8 @@ pipeline {
         APP_PATH_PROD = '/var/www/html/rschlaravel'
         
         //ENV Staging
-        STAGING_HOST = "${env.HOST-STAGING-PORTLET}"
-        STAGING_USER = "${env.USER-STAGING-PORTLET}"
+        STAGING_HOST = "${env.STAGING_HOST}"
+        STAGING_USER = "${env.STAGING_USER}"
         STAGING_AGENT = 'jenkins-staging'
         APP_PATH_STAGING = '/var/www/html/rschlaravel1'
         
@@ -27,9 +27,9 @@ pipeline {
     }
 
     stages{
-        stage('Hello') {
-            steps {
-                echo 'Hello World'
+         stage('Build') {
+            steps{
+                echo 'build'
             }
         }
         stage('Deliver for staging') {

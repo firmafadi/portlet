@@ -12,7 +12,7 @@ pipeline {
         APP_PATH_PROD = '/var/www/html/rschlaravel'
         
         //ENV Staging
-        STAGING_HOST = "${env.STAGING_HOST}"
+        STAGING_HOST = "${env.HOST-STAGING-PORTLET}"
         STAGING_USER = "${env.STAGING_USER}"
         STAGING_AGENT = 'jenkins-staging'
         APP_PATH_STAGING = '/var/www/html/rschlaravel1'

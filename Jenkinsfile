@@ -27,8 +27,10 @@ pipeline {
     }
 
     stages{
-         stage('Build') {
-            echo 'build'
+        stage('Hello') {
+            steps {
+                echo 'Hello World'
+            }
         }
         stage('Deliver for staging') {
 

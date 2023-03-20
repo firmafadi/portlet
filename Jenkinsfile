@@ -12,9 +12,9 @@ pipeline {
         APP_PATH_PROD = '/var/www/html/rschlaravel'
         
         //ENV Staging
-        STAGING_HOST = "${env.STAGING_HOST}"
-        STAGING_USER = "${env.STAGING_USER}"
-        STAGING_AGENT = 'jenkins-staging'
+        STAGING_HOST = "${env.HOST-STAGING-PORTLET}"
+        STAGING_USER = "${env.USER-STAGING-PORTLET}"
+        STAGING_AGENT = 'testing0'
         APP_PATH_STAGING = '/var/www/html/rschlaravel1'
         
         //ENV Slack Notification
@@ -62,4 +62,4 @@ pipeline {
             slackSend channel: "$SLACK_CHANNEL", failOnError: true, message: "[$APP_NAME] [$GIT_BRANCH] [$GIT_COMMIT] - Deploy failed ${env.JOB_NAME} ${env.BUILD_NUMBER} (<${env.BUILD_URL}consoleText|Open Log>)", color:'danger', tokenCredentialId: "$SLACK_TOKEN"
         }
     }
-}
+}git

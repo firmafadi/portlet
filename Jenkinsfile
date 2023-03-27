@@ -48,6 +48,16 @@ pipeline {
                 sh 'rsync -a $WORKSPACE/dist $STAGING_USER@$STAGING_HOST:/var/www/'
             }
         }
+        stage('Deliver for production') {
+
+            when {
+                branch 'master'
+            }
+             
+            steps{
+                sh 'rsync -a $WORKSPACE/dist $STAGING_USER@$STAGING_HOST:/var/www/'
+            }
+        }
     }
 
 	// stages{

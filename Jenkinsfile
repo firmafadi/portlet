@@ -3,7 +3,8 @@ pipeline {
     agent any
 
     environment {
-        APP_NAME = 'Testing-App'
+        APP_NAME = 'Portlet-APP'
+        WORKSPACE = "${env.WORKSPACE}"
         
         //ENV Staging
         STAGING_HOST = "${env.STAGING_HOST}"
@@ -44,7 +45,7 @@ pipeline {
             }
              
             steps{
-                sh 'rsync -a $(env.WORKSPACE)/dist $STAGING_USER@$STAGING_HOST:/var/www/'
+                sh 'rsync -a $WORKSPACE/dist $STAGING_USER@$STAGING_HOST:/var/www/'
             }
         }
     }

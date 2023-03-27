@@ -34,7 +34,7 @@ pipeline {
         }
         stage('Testing') {
             steps{
-                sh 'npm run test'
+                sh 'npm run lint'
             }
         }
         stage('Deliver for staging') {

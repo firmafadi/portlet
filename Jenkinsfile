@@ -45,7 +45,7 @@ pipeline {
              
             steps{
                 sshagent(credentials:["$STAGING_AGENT"]){
-                    sh 'ssh  -o StrictHostKeyChecking=no rsync -a ${env.WORKSPACE}/portlet-vue/dist $STAGING_USER@$STAGING_HOST:/var/www/ '
+                    sh 'rsync -a ${env.WORKSPACE}/portlet-vue/dist $STAGING_USER@$STAGING_HOST:/var/www/ '
                 }
             }
         }

@@ -49,7 +49,7 @@ pipeline {
             }
         }
 
-        stage('Deliver for staging') {
+        stage('Deliver for production') {
 
             when {
                 branch 'master'

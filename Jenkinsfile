@@ -25,7 +25,20 @@ pipeline {
     options {
         timeout(time: 1, unit: 'HOURS')
     }
-
+    stages{
+        stage('Build') {
+            steps{
+                npm run build
+            }
+        }
+    }
+    stages{
+        stage('Testing') {
+            steps{
+                npm run test
+            }
+        }
+    }
     stages{
         stage('Deliver for staging') {
 
@@ -35,7 +48,7 @@ pipeline {
              
             steps{
                 sshagent(credentials:["$STAGING_AGENT"]){
-                    sh 'ssh  -o StrictHostKeyChecking=no $STAGING_USER@$STAGING_HOST "cd $APP_PATH_STAGING && git pull origin staging"'
+                    sh 'ssh  -o StrictHostKeyChecking=no rsync -a ${env.WORKSPACE}/portlet-vue/dist $STAGING_USER@$STAGING_HOST:/var/www/ '
                 }
             }
         }

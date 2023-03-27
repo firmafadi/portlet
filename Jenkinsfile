@@ -36,8 +36,6 @@ pipeline {
                 sh 'npm run test'
             }
         }
-    }
-    stages{
         stage('Deliver for staging') {
 
             when {

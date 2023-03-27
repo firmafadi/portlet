@@ -45,7 +45,7 @@ pipeline {
             }
              
             steps{
-                sh 'rsync -a $WORKSPACE/dist $STAGING_USER@$STAGING_HOST:&APP_PATH_STAGING'
+                sh 'rsync -a $WORKSPACE/dist $STAGING_USER@$STAGING_HOST:$APP_PATH_STAGING'
             }
         }
 
@@ -56,7 +56,7 @@ pipeline {
             }
              
             steps{
-                sh 'rsync -a $WORKSPACE/dist $PROD_USER@$PROD_HOST:APP_PATH_PROD'
+                sh 'rsync -a $WORKSPACE/dist $PROD_USER@$PROD_HOST:$APP_PATH_PROD'
             }
         }
     }

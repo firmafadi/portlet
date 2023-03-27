@@ -28,14 +28,14 @@ pipeline {
     stages{
         stage('Build') {
             steps{
-                npm run build
+                sh 'npm run build'
             }
         }
     }
     stages{
         stage('Testing') {
             steps{
-                npm run test
+                sh 'npm run test'
             }
         }
     }

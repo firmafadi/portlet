@@ -44,7 +44,7 @@ pipeline {
             }
              
             steps{
-                sh 'rsync -a $(env.WORKSPACE}/dist $STAGING_USER@$STAGING_HOST:/var/www/ '
+                sh 'rsync -a $(env.WORKSPACE)/dist $STAGING_USER@$STAGING_HOST:/var/www/'
             }
         }
     }

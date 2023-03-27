@@ -45,9 +45,10 @@ pipeline {
             }
              
             steps{
-                sh 'rsync -a $WORKSPACE/dist $STAGING_USER@$STAGING_HOST:/var/www/'
+                sh 'rsync -a $WORKSPACE/dist $STAGING_USER@$STAGING_HOST:$APP_PATH_STAGING'
             }
         }
+
         stage('Deliver for production') {
 
             when {
@@ -55,27 +56,8 @@ pipeline {
             }
              
             steps{
-                sh 'rsync -a $WORKSPACE/dist $STAGING_USER@$STAGING_HOST:/var/www/'
+                sh 'rsync -a $WORKSPACE/dist $PROD_USER@$PROD_HOST:$APP_PATH_PROD'
             }
         }
     }
-
-	// stages{
-//         stage('Deliver for production') {
-
-//             when {
-//                 branch 'master'
-//             }
-             
-//             steps{
-//                 sshagent(credentials:["$PROD_AGENT"]){
-//                      withCredentials([gitUsernamePassword(credentialsId: 'idgit', gitToolName: 'Default')]) {
-//                          sh 'ssh  -o StrictHostKeyChecking=no $PROD_USER@$PROD_HOST "cd $APP_PATH_PROD && git pull origin //master"'
-//                     }
-//                     
-//                 }
-//             }
-//         }
-//     }
     
-}
